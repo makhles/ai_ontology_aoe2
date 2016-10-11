@@ -1,0 +1,165 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[table]{xcolor}
+\usepackage[top=20mm, bottom=30mm, left=18mm, right=18mm]{geometry}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{hyperref}  % Enables hyperlinks
+
+% Encoding
+%--------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%--------------------------------------
+%Portuguese-specific commands
+%--------------------------------------
+\usepackage[portuguese]{babel}
+%--------------------------------------
+
+\definecolor{light_gray}{RGB}{235, 235, 235}
+
+\usepackage{graphicx}
+\graphicspath{{./img/}}
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\title{
+	\usefont{OT1}{bch}{b}{n}
+	\normalfont \Large \textsc{Universidade Federal de Santa Catarina\\
+		Departamento de Informática e Estatística\\
+		Inteligência Artificial
+	} \\ [25pt]
+	\horrule{0.5pt} \\[0.4cm]
+	\huge Trabalho sobre Representação de Conhecimento e Raciocínio \\
+	\horrule{2pt} \\[0.5cm]
+}
+
+\author{Leonardo V. Eichstaedt\\
+        \and
+        Makhles Reuter Lange
+}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	PESQUISA TEÓRICA
+%----------------------------------------------------------------------------------------
+
+\section{Pesquisa teórica}
+
+\subsection{\texttt{SubclassOf} vs \texttt{equivalentTo}}
+
+Utiliza-se o axioma de subclasse \texttt{SubClassOf( CE$_1$ CE$_2$ )}, no qual \texttt{CE$_1$} e \texttt{CE$_2$} são expressões de classe, para construir o conceito de hierarquia de classes. Ou seja, \texttt{CE$_1$} é mais específica que \texttt{CE$_2$}.
+
+O axioma de classes equivalentes \texttt{EquivalentClasses( CE$_1 \ldots$ CE$_n$ )}, por sua vez, estabelece que todas as expressões de classes \texttt{CE$_i$}, $1 \leq i \leq n$, são equivalentes entre si.
+
+Dessa forma, utilizando o exemplo dado, tem-se que \texttt{Judoca subClassOf fazGolpe some Golpe} implica em qualquer instância de \texttt{Judoca} também possuir a propriedade \texttt{fazGolpe some Golpe}. No entanto, uma instância de \texttt{fazGolpe some Golpe} não é inferido como sendo também uma instância de \texttt{Judoca}, enquanto que ao se usar o axioma \texttt{equivalentTo}, o motor de inferência irá considerar ambas as instâncias equivalentes. Exemplo:
+
+\begin{itemize}
+
+    \item \texttt{MilitaryUnit subClassOf Unit} implica em uma instância de \texttt{MilitaryUnit} herdar as propriedades de \texttt{Unit}.
+
+    \item \texttt{MilitaryUnit equivalentTo (attacks some (Unit or Building) and wields some Weapon)} implica em cada um dos indivíduos resultantes de \texttt{attacks some (Unit or Building) and wields some Weapon} também ser uma instância de \texttt{MilitaryUnit}.
+
+\end{itemize}
+
+
+%----------------------------------------------------------------------------------------
+%	MODELO CONCEITUAL
+%----------------------------------------------------------------------------------------
+
+\section{Modelo Conceitual - Age of Empires 2}
+
+O domínio escolhido para a criação da ontologia foi o jogo \emph{Age of Empires 2}. É um jogo de estratégia em tempo real que possui os modos de jogo \emph{single player}, através de campanhas, e \emph{multiplayer}. Neste último, o objetivo principal é a conquista dos reinos adversários. As principais características do jogo são:
+%
+\begin{itemize}
+    \item O jogo é divido em idades: Idade Negra, Idade Feudal, Idade dos Castelos e Idade Imperial. Os jogadores iniciam a partida na Idade Negra.
+    \item Os jogadores devem escolher uma dentre as diversas civilizações disponíveis, \emph{e.g.}, Bretões, Turcos, Chineses, Espanhóis, Hunos, etc.
+    \item Cada civilização possui uma gama de construções, as quais podem ser do tipo militar (Quartel, Castelo, Ferraria, etc) ou relacionadas à economia (Centro da cidade, Mercado, Universidade, etc).
+    \item Existem diversas unidades, que podem ser do tipo militar (são feitas em construções do tipo militar) ou do tipo relacionado à economia (por exemplo um camponês, um lenhador ou um carro de comércio).
+    \item As unidades militares utilizam armas de curto (Espadas) ou longo alcance (Arco e Flechas, Lanças, Arma de Fogo).
+    \item Para que um jogador avance para a próxima idade, é necessário que tenha feito determinadas construções e que doe uma certa quantidade de recursos (ouro, comida, madeira ou pedra) obtidos do mapa, que varia com a idade desejada.
+    \item Algumas construções e unidades só estão disponíveis a partir de determinadas idades, \emph{e.g.}, Castelos e Monastérios podem ser construídos somente a partir da Idade dos Castelos.
+
+\end{itemize}
+
+
+%----------------------------------------------------------------------------------------
+%   ONTOLOGIA
+%----------------------------------------------------------------------------------------
+
+\section{Ontologia - AoE2}
+
+\subsection{Classes}
+
+A seguinte hierarquia de classes foi definida para a ontologia AoE2:
+%
+\begin{itemize}
+    \item Age
+        \begin{itemize}
+            \item DarkAge
+            \item FeudalAge
+            \item CastleAge
+            \item ImperialAge
+        \end{itemize}
+    \item Attack
+    \item Building
+        \begin{itemize}
+            \item EconomicBuilding
+            \item MilitaryBuilding
+        \end{itemize}
+    \item Civilization
+        \begin{itemize}
+            \item Britons
+            \item Chinese
+            \item Huns
+        \end{itemize}
+    \item Mount
+    \item Player
+    \item Resource
+    \item Unit
+        \begin{itemize}
+            \item EconomicUnit
+            \item MilitaryUnit
+        \end{itemize}
+    \item Weapon
+        \begin{itemize}
+            \item MeleeWeapon
+            \item RangedWeapon
+        \end{itemize}
+\end{itemize}
+% 
+%----------------------------------------------------------------------------------------
+\subsection{Restrições Aplicadas}
+
+%----------------------------------------------------------------------------------------
+\subsection{Indivíduos}
+
+\begin{tabular}{ l c c }
+    Indivíduo & APO* & APD** \\
+    \hline
+    Player1 & owns Castle & playerName = "Edward Longshanks" \\
+    \hline
+\end{tabular}
+
+
+\subsection{Inferências Realizadas}
+
+%----------------------------------------------------------------------------------------
+%	REFERÊNCIAS BIBLIOGRÁFICAS
+%----------------------------------------------------------------------------------------
+
+\section{Referências Bibliográficas}
+
+W3C, OWL 2 Web Ontology Language. Disponível em: \url{https://www.w3.org/TR/owl2-syntax/}. Acesso em: 8/10/2016.
+
+LUGER, George. Inteligência Artificial. Estruturas e Estratégias para a solução de problemas complexos. 4ª edição. Bookman, 2004.
+
+
+\end{document}

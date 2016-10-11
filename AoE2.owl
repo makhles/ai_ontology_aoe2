@@ -1,0 +1,731 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#"
+     xml:base="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5"
+     xmlns:AoE2="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:untitled-ontology-5="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#gathersFood -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#gathersFood">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#gathersResources"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#gathersGold -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#gathersGold">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#gathersResources"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#gathersResources -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#gathersResources">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#EconomicUnit"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#EconomicBuilding"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#gathersStone -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#gathersStone">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#gathersResources"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#gathersWood -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#gathersWood">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#gathersResources"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#attacks -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#attacks">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#MilitaryUnit"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Unit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#availableAt -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#availableAt">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Building"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Age"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#belongsTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#belongsTo">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Player"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#belongsTo"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Civilization"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#builds -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#builds">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#EconomicUnit"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Building"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#builtIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#builtIn"/>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#isEconomic -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#isEconomic">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Unit"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#attacks"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Building"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#attacks"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Unit"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#isIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#isIn">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Player"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Age"/>
+        <rdfs:comment>Specifies at which age the player is in.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#isMilitary -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#isMilitary">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Unit"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#attacks"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Building"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#attacks"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Unit"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#owns -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#owns">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Player"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#rides -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#rides">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Mount"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#storesResources -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#storesResources">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#EconomicBuilding"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Resource"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#wields -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#wields">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#MilitaryUnit"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Weapon"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#buildingHitPoints -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#buildingHitPoints">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Building"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#damage -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#damage">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#MilitaryUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#distance -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#distance">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Attack"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#hitPoints -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#hitPoints">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Unit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#initialPopulation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#initialPopulation">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Civilization"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#playerName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#playerName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Player"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Age -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Age"/>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Attack -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Attack"/>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Britons -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Britons">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Civilization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Building -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Building"/>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Castle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Castle">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#availableAt"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#CastleAge"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#ImperialAge"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#MilitaryBuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#CastleAge -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#CastleAge">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Age"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Celts -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Celts">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Civilization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Chinese -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Chinese">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#initialPopulation"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">6</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Civilization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Civilization -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Civilization"/>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#DarkAge -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#DarkAge">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Age"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#EconomicBuilding -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#EconomicBuilding">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Building"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#EconomicUnit -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#EconomicUnit">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#gathersResources"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Resource"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Unit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#FeudalAge -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#FeudalAge">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Age"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Huns -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Huns">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Civilization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#ImperialAge -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#ImperialAge">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Age"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#MeleeWeapon -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#MeleeWeapon">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Weapon"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#MilitaryBuilding -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#MilitaryBuilding">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Building"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#MilitaryUnit -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#MilitaryUnit">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#attacks"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Building"/>
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Unit"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#wields"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Weapon"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#builtIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#MilitaryBuilding"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Unit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Mongols -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Mongols">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Civilization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Mount -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Mount"/>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Player -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Player"/>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#RangedWeapon -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#RangedWeapon">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Weapon"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Resource -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Resource"/>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Spanish -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Spanish">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Civilization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Unit -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Unit"/>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Weapon -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Weapon"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#Fisherman -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#Fisherman">
+        <AoE2:gathersFood rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#Food"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#Food -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#Food">
+        <rdf:type rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Resource"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#Gold -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#Gold">
+        <rdf:type rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Resource"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#Lumberjack -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#Lumberjack">
+        <AoE2:gathersWood rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#Wood"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#Miner -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#Miner">
+        <AoE2:gathersGold rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#Gold"/>
+        <AoE2:gathersStone rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#Stone"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#Stone -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#Stone">
+        <rdf:type rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Resource"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#Wood -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#Wood">
+        <rdf:type rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Resource"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Bow -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Bow">
+        <rdf:type rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#RangedWeapon"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Camel -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Camel">
+        <rdf:type rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Mount"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Castle -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Castle">
+        <rdf:type rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#MilitaryBuilding"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#DarkAge -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#DarkAge">
+        <rdf:type rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Age"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Donkey -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Donkey">
+        <rdf:type rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Mount"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#FeudalAge -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#FeudalAge">
+        <rdf:type rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Age"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Horse -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Horse">
+        <rdf:type rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Mount"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#ImperialAge -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#ImperialAge">
+        <rdf:type rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Age"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Knight -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Knight">
+        <rides rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Horse"/>
+        <wields rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Sword"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#LumberMill -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#LumberMill">
+        <rdf:type rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#EconomicBuilding"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Mill -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Mill">
+        <rdf:type rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#EconomicBuilding"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#OneHandedSwordsman -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#OneHandedSwordsman">
+        <wields rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Sword"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Player1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Player1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Player"/>
+        <owns rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Castle"/>
+        <playerName>Edward Longshanks</playerName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Shield -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Shield">
+        <rdf:type rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#MeleeWeapon"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Sword -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Sword">
+        <rdf:type rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#MeleeWeapon"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#TownCenter -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#TownCenter">
+        <rdf:type rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#EconomicBuilding"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Villager -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/odin/ontologies/2016/9/untitled-ontology-5#Villager">
+        <AoE2:gathersResources rdf:resource="http://www.semanticweb.org/odin/ontologies/2016/9/AoE2#Food"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
+
