@@ -69,6 +69,22 @@ Dessa forma, utilizando o exemplo dado, tem-se que \texttt{Judoca subClassOf faz
 
 \end{itemize}
 
+%----------------------------------------------------------------------------------------
+
+\subsection{HermiT}
+
+Motores de inferência recebem coleções de axiomas e oferecem um conjunto de operações
+nestes axiomas da ontologia. O primeiro passos realizado por um motor de inferência é realizar os testes de consistência e de satisfazibilidade. Caso satisfeitos, o motor irá tentar construir as inferências baseadas nas regras definidas. Essas inferências são feitas com base no modelo de implementação de inferência da ferramenta.
+
+O HermiT é um motor de inferência para ontologias escritas em OWL. Dado um arquivo OWL, o HermiT pode determinar se uma ontologia é consistente, derivar inferências e mais. Ele baseia-se em \emph{hypertableau} calculus\footnote{Um tipo de cálculo completo para lógica de primeira ordem baseada em cláusulas.}, uma abordagem que permite lidar com problemas de
+não-determinismo e tamanho do modelo. O HermiT utiliza uma otimização que tenta reusar
+indivíduos existentes ao invés de gerar novos, além de contar com otimizações relacionadas a classificação de ontologias.
+
+Como o HermiT é um \emph{tableau based reasoner}, ele tenta construir modelos da ontologia utilizando regras de realização nos indivíduos do modelos para garantir que todos eles e suas relações satisfaçam os axiomas da ontologia. Portanto, no caso do HermiT, por ser baseado em \emph{hypertableau}, ele reduz consideralvelmente o tamanho dos modelos construídos e as advinhações usadas para explorar as possíveis construções.
+
+Um dos problemas para as regras de realização contruírem modelos que satisfaçam as
+ontologias é ficar construindo modelos infinitamente até satisfazer os axiomas. Para resolver esse problema, utiliza-se um mecanismo de detecção de ciclos chamado \emph{blocking}.
+
 
 %----------------------------------------------------------------------------------------
 %	MODELO CONCEITUAL
@@ -96,6 +112,8 @@ O domínio escolhido para a criação da ontologia foi o jogo \emph{Age of Empir
 
 \section{Ontologia - AoE2}
 
+A ontologia foi criada utilizando-se o programa Protégé 5.0.0 e utilizando-se o motor de inferência HermiT 1.3.8.
+
 \subsection{Classes}
 
 A seguinte hierarquia de classes foi definida para a ontologia AoE2:
@@ -108,18 +126,15 @@ A seguinte hierarquia de classes foi definida para a ontologia AoE2:
             \item CastleAge
             \item ImperialAge
         \end{itemize}
-    \item Attack
     \item Building
         \begin{itemize}
             \item EconomicBuilding
             \item MilitaryBuilding
+                \begin{itemize}
+                    \item Castle
+                \end{itemize}
         \end{itemize}
     \item Civilization
-        \begin{itemize}
-            \item Britons
-            \item Chinese
-            \item Huns
-        \end{itemize}
     \item Mount
     \item Player
     \item Resource
@@ -127,6 +142,10 @@ A seguinte hierarquia de classes foi definida para a ontologia AoE2:
         \begin{itemize}
             \item EconomicUnit
             \item MilitaryUnit
+                \begin{itemize}
+                    \item MeleeUnit
+                    \item RangedUnit
+                \end{itemize}
         \end{itemize}
     \item Weapon
         \begin{itemize}
@@ -135,21 +154,75 @@ A seguinte hierarquia de classes foi definida para a ontologia AoE2:
         \end{itemize}
 \end{itemize}
 % 
-%----------------------------------------------------------------------------------------
-\subsection{Restrições Aplicadas}
 
 %----------------------------------------------------------------------------------------
 \subsection{Indivíduos}
 
-\begin{tabular}{ l c c }
-    Indivíduo & APO* & APD** \\
-    \hline
-    Player1 & owns Castle & playerName = "Edward Longshanks" \\
-    \hline
-\end{tabular}
+Indivíduos simples, sem nenhum tipo de inferência realizado (destaca-se a classe a qual pertence o indivíduo):
+
+\begin{itemize}
+    \item \textbf{Resource} Food, Gold, Stone, Wood
+    \item \textbf{Mount} Horse
+    \item \textbf{Age} DarkAge, FeudalAge, CastleAge, ImperialAge
+\end{itemize}
+
+Indivíduos em que foi feita alguma inferência (OPA = Object Property Assertions; DPA = Data Property Assertions):
+
+\begin{itemize}
+    \item \textbf{Bow} DPA: distance 10; Tipo inferido: Weapon
+    \item \textbf{Shield} DPA: distance 0; Tipo inferido: Weapon
+    \item \textbf{Sword} DPA: distance 1; Tipo inferido: Weapon
+    \item \textbf{Mill} OPA: storesResources Food; Tipo inferido: EconomicBuilding
+    \item \textbf{LumberMill} OPA: storesResources Wood; Tipo inferido: EconomicBuilding
+    \item \textbf{TownCenter} OPA: storesResources Food, storesResources Gold, storesResources Stone, storesResources Wood; Tipo inferido: EconomicBuilding
+    \item \textbf{Lumberjack} OPA: gathersWood Wood; Tipo inferido: EconomicUnit; OPA inferido: gathersResources Wood
+    \item \textbf{Fisherman} OPA: gathersFood Food; Tipo inferido: EconomicUnit; OPA inferido: gathersResources Food
+    \item \textbf{Miner} OPA: gathersGold Gold, gathersStone Stone; Tipo inferido: EconomicUnit; OPA inferido: gathersResources Gold, gathersResources Stone
+    \item \textbf{Villager} OPA: gathersResources Food, builds Mill, builds LumberMill, builds TownCenter; Tipo inferido: EconomicUnit
+    \item \textbf{WindsorCastle} OPA: availableAt CastleAge, defendsFrom Knight; OPA inferido: isOwnedBy EdwardLongshanks; Tipo inferido: Castle
+    \item \textbf{Knight} OPA: rides Horse, wields Shield, wields Sword; OPA inferidos: isOwnedBy EdwardLongshanks, attacks Mangudai; Tipo inferido: MilitaryUnit
+    \item \textbf{Mangudai} OPA: attacks Knight, rides Horse, wields Bow; OPA inferido: isOwnedBy GenghisKhan; Tipo inferido: MilitaryUnit
+    \item \textbf{EdwardLongshanks} OPA: owns WindsorCastle, owns Knight, hasEnemy GenghisKhan, is Britons; Tipo inferido: Player
+    \item \textbf{GenghisKhan} OPA: owns Mangudai, is Mongols; OPA inferido: hasEnemy EdwardLongshanks; Tipo inferido: Player
+\end{itemize}
+% \begin{tabular}{ |l|c|c|c|c| }
+%     Indivíduo & APO$^1$ & Tipo & APO$^1$ Inferido & Tipo Inferido \\
+%     \hline
+%     \multirow{4}{*}{Edward Longshanks} & owns WindsorCastle \\
+
+%     \hline
+% \end{tabular}
+
+%----------------------------------------------------------------------------------------
+\subsection{Propriedades e Restrições Aplicadas}
 
 
-\subsection{Inferências Realizadas}
+\subsubsection{Equivalent To}
+Com relação às propriedades de dados, criou-se somente a propriedade \emph{distance}, cujo Domínio é a classe \texttt{Weapon} e a Imagem \texttt{xsd:integer}. O intuito dessa propriedade é ser utilizada nas definições de equivalência de \texttt{MeleeWeapon} e \texttt{RangedWeapon}:
+%
+\begin{description}
+    \item [MeleeWeapon] \texttt{Equivalent To: Weapon and (distance max 1 owl:rational)}
+    \item [RangedWeapon] \texttt{Equivalent To: Weapon and (distance min 3 owl:rational)}
+    \item [EconomicUnit] \texttt{gathersResources some Resource}
+    \item [MilitaryUnit] \texttt{attacks some (Building or Unit) and (wields some Weapon)}
+    \item [MeleeUnit] \texttt{MilitaryUnit and (wields some MeleeWeapon)}
+    \item [RangedUnit] \texttt{MilitaryUnit and (wields some RangedWeapon)}
+    \item [Castle] \texttt{MilitaryBuilding and (defendsFrom some Unit)}
+    \item [EconomicBuilding] \texttt{Building and (storesResources some Resource)}
+\end{description}
+
+\subsubsection{Disjoint With}
+\begin{itemize}
+    \item EconomigUnit e MilitaryUnit
+    \item MeleeUnit e RangedUnit
+    \item MeleeWeapon e RangedWeapon
+\end{itemize}
+
+\subsubsection{Different Individuals}
+
+\begin{itemize}
+    \item Food, Gold, Stone e Wood
+\end{itemize}
 
 %----------------------------------------------------------------------------------------
 %	REFERÊNCIAS BIBLIOGRÁFICAS
@@ -157,7 +230,21 @@ A seguinte hierarquia de classes foi definida para a ontologia AoE2:
 
 \section{Referências Bibliográficas}
 
+HORROCKS, Ian, MOTIK, Boris, WANG, Zhe. The HermiT OWL Reasoner. Disponível em: \url{https://www.cs.ox.ac.uk/boris.motik/pubs/hmw12HermiT.pdf}. Acesso em: 10/10/2016.
+
+\vspace{5mm}
+
+SHEARER, Rob, MOTIK, Boris, HORROCKS, Ian. HermiT: A Highly-Efficient OWL Reasoner. Disponível em: \url{https://www.cs.ox.ac.uk/boris.motik/pubs/smh08HermiT.pdf}. Acesso em: 10/10/2016.
+
+\vspace{5mm}
+
+ONTOGENESIS, How does a reasoner work? Disponível em: \url{http://ontogenesis.knowledgeblog.org/1486}. Acesso em: 10/10/2016.
+
+\vspace{5mm}
+
 W3C, OWL 2 Web Ontology Language. Disponível em: \url{https://www.w3.org/TR/owl2-syntax/}. Acesso em: 8/10/2016.
+
+\vspace{5mm}
 
 LUGER, George. Inteligência Artificial. Estruturas e Estratégias para a solução de problemas complexos. 4ª edição. Bookman, 2004.
 
